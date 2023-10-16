@@ -27,6 +27,12 @@
 import {ChevronDownIcon} from "@heroicons/vue/20/solid";
 import {ref} from "vue";
 import {Menu, MenuButton, MenuItem, MenuItems} from "@headlessui/vue";
+import {getAllTypeAPI} from "@/apis/collection";
 let active = ref(true)
+let typeList = ref([])
 const emits = defineEmits(['selectWebsite']);
+
+async function getAllType() {
+  typeList.value = await getAllTypeAPI();
+}
 </script>

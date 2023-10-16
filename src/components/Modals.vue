@@ -123,6 +123,7 @@ import Dropdown from "@/components/Dropdown.vue";
 import {addWebsiteAPI} from "@/apis/collection";
 
 const state = ref(false)
+const emits = defineEmits(['addNewWebsite'])
 let websiteData = ref({
   url: '',
   name: '',
@@ -131,7 +132,6 @@ let websiteData = ref({
 })
 function chooseType(obj) {
   websiteData.value.type = obj.type;
-  console.log(websiteData.value)
 }
 const open = ()=> {
   state.value = true;
@@ -142,8 +142,7 @@ const close = ()=> {
 
 function addWebsite() {
   close();
-  console.log(websiteData.value);
-  addWebsiteAPI(websiteData.value);
+  emits('addNewWebsite', websiteData.value);
 }
 defineExpose({
   open,
