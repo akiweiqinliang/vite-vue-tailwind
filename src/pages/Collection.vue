@@ -80,30 +80,49 @@
               Here is your favorites list, review the past and learn the new. 🚀
             </p>
           </div>
-          <Dropdown />
+          <button type="button" @click="addWebsite" class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:ring-gray-400">add</button>
+          <Dropdown @selectWebsite="selectType"/>
         </div>
       </div>
     </header>
-    <List :show-list="websitesList" :title="'websites'" />
-    <List :show-list="libraryList" :title="'libraries'"/>
+    <div v-for="(list, index) in allCollectedList" :key="`collection-${index}`">
+      <List :show-list="list[1]" :title="list[0]" v-show="showWebsiteType === list[0] || showWebsiteType === 'all'" />
+    </div>
+<!--    <List :show-list="websitesList" :title="'websites'" v-show="showWebsiteType === 'websites' || showWebsiteType === 'all'" />-->
+<!--    <List :show-list="libraryList" :title="'libraries'" v-show="showWebsiteType === 'libraries' || showWebsiteType === 'all'"/>-->
+    <Modals ref="addWebsiteFlag"/>
   </div>
 </template>
 
 <script setup>
 import List from "@/components/List.vue";
-import {getCollectedWebsitesAPI, getComponentLibraryAPI} from "@/apis/collection";
-import {onMounted, ref} from 'vue';
+import {
+  getAllCollectionAPI,
+  getCollectionByTypeAPI,
+} from "@/apis/collection";
+import {getCurrentInstance, nextTick, onMounted, ref} from 'vue';
 import Dropdown from "@/components/Dropdown.vue";
+import Modals from "@/components/Modals.vue";
 
-let websitesList = ref([]);
-let libraryList = ref([]);
-
+// let websitesList = ref([]);
+// let libraryList = ref([]);
+let allCollectedList = ref({});
+let showWebsiteType = ref('all');
 let username = ref(sessionStorage.getItem('user'))
 const getWebsites = async ()=> {
-  websitesList.value = await getCollectedWebsitesAPI();
-  libraryList.value = await getComponentLibraryAPI();
+  const websites = await getCollectionByTypeAPI('websites');
+  const libraries = await getCollectionByTypeAPI('libraries');
+  allCollectedList.value = await getAllCollectionAPI()
 }
 onMounted(() => getWebsites());
+const addWebsiteFlag = ref(null)
+function addWebsite() {
+    addWebsiteFlag.value.open();
+}
+function selectType(obj) {
+  showWebsiteType.value = obj.type;
+  console.log(obj.type)
+}
 </script>
 
 <style scoped>
