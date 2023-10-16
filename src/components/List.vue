@@ -12,7 +12,7 @@
           <dt class="mt-1 text-sm font-medium leading-6 text-gray-900" >{{ item.name }}</dt>
           <dd class="mt-1 text-xs font-medium leading-6 text-gray-500">{{ item.about }}</dd>
           <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 hover:underline overflow-ellipsis overflow-x-auto">
-            <a :href="item.url" target="_blank">{{ item.url }}</a>
+            <a target="_blank">{{ item.url }}</a>
           </dd>
           <dd class="mt-1 text-xs font-medium leading-7 text-gray-500 text-end">
             <a :href="item.url" target="_blank" class="inline-block rounded-md px-3.5 py-2.5 text-sm font-semibold text-black shadow-xl bg-gradient-to-r from-from-a-yellow to-to-a-green transition hover:-rotate-2 hover:scale-110">take a look</a>

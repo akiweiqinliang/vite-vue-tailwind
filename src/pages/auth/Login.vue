@@ -175,7 +175,7 @@
               <button
                   type="button"
                   @click="register"
-                  class="inline-block shrink-0 rounded-md border border-lime-600 px-12 py-3 text-sm font-medium text-lime-600 transition hover:bg-transparent hover:bg-lime-900 hover:border-lime-900 hover:text-white focus:outline-none"
+                  class="inline-block shrink-0 rounded-md border border-lime-600 px-12 py-3 text-sm font-medium text-lime-600 transition hover:bg-lime-900 hover:border-lime-900 hover:text-white focus:outline-none"
               >
                 Create an account
               </button>
@@ -232,7 +232,7 @@
               <button
                   type="button"
                   @click="login"
-                  class="inline-block shrink-0 rounded-md border border-lime-600 px-12 py-3 text-sm font-medium text-lime-600 transition hover:bg-transparent hover:bg-lime-900 hover:border-lime-900 hover:text-white focus:outline-none"
+                  class="inline-block shrink-0 rounded-md border border-lime-600 px-12 py-3 text-sm font-medium text-lime-600 transition hover:bg-lime-900 hover:text-white hover:border-lime-900 focus:outline-none"
               >
                 Login
               </button>
