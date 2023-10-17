@@ -7,12 +7,14 @@
             <div class="relative">
               <label class="sr-only" for="search"> Search </label>
               <input
-                  class="h-10 w-full rounded-full border-none bg-white pe-10 ps-4 text-sm shadow-sm sm:w-56"
+                  v-model.trim="searchWebsiteText"
+                  class="h-10 w-full rounded-full border-none bg-white pe-10 ps-4 text-sm shadow-sm sm:w-56 focus-visible:outline-lime-700 hover:text-lime-900"
                   id="search"
-                  type="search"
+                  type="text"
                   placeholder="Search website..."
               />
               <button
+                  @click="selectWebsiteByName"
                   type="button"
                   class="absolute end-1 top-1/2 -translate-y-1/2 rounded-full bg-gray-50 p-2 text-gray-600 transition hover:text-gray-700"
               >
@@ -80,49 +82,70 @@
               Here is your favorites list, review the past and learn the new. 🚀
             </p>
           </div>
-          <button type="button" @click="addWebsite" class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:ring-gray-400">add</button>
-          <Dropdown @selectWebsite="selectType"/>
+          <button type="button" @click="openAddWebsiteModal" class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:ring-gray-400">add</button>
+          <Dropdown @selectWebsite="selectType" />
         </div>
       </div>
     </header>
-    <div v-for="(list, index) in allCollectedList" :key="`collection-${index}`">
+    <div v-for="(list, index) in allCollectedList" :key="`collection-${index}`" v-if="selectedWebsiteList.length === 0">
       <List :show-list="list[1]" :title="list[0]" v-show="showWebsiteType === list[0] || showWebsiteType === 'all'" />
     </div>
-<!--    <List :show-list="websitesList" :title="'websites'" v-show="showWebsiteType === 'websites' || showWebsiteType === 'all'" />-->
-<!--    <List :show-list="libraryList" :title="'libraries'" v-show="showWebsiteType === 'libraries' || showWebsiteType === 'all'"/>-->
-    <Modals ref="addWebsiteFlag"/>
+    <div v-for="(list, index) in selectedWebsiteList" :key="`search-${index}`" v-else>
+      <List :show-list="list[1]" :title="list[0]" v-show="showWebsiteType === list[0] || showWebsiteType === 'all'" />
+    </div>
+    <Modals ref="addWebsiteFlag" @addNewWebsite="addNewWebsite" />
   </div>
 </template>
 
 <script setup>
 import List from "@/components/List.vue";
 import {
-  getAllCollectionAPI,
-  getCollectionByTypeAPI,
+  addWebsiteAPI,
+  getAllCollectionAPI, getAllTypeAPI,
+  getCollectionByTypeAPI, selectWebsiteByNameAPI,
 } from "@/apis/collection";
-import {getCurrentInstance, nextTick, onMounted, ref} from 'vue';
+import {getCurrentInstance, nextTick, onMounted, provide, ref, watch} from 'vue';
 import Dropdown from "@/components/Dropdown.vue";
 import Modals from "@/components/Modals.vue";
 
-// let websitesList = ref([]);
-// let libraryList = ref([]);
-let allCollectedList = ref({});
-let showWebsiteType = ref('all');
+let allCollectedList = ref({})
+let showWebsiteType = ref('all')
 let username = ref(sessionStorage.getItem('user'))
-const getWebsites = async ()=> {
-  const websites = await getCollectionByTypeAPI('websites');
-  const libraries = await getCollectionByTypeAPI('libraries');
-  allCollectedList.value = await getAllCollectionAPI()
-}
-onMounted(() => getWebsites());
+let typeList = ref([])
 const addWebsiteFlag = ref(null)
-function addWebsite() {
+const searchWebsiteText = ref('')
+let selectedWebsiteList = ref([])
+
+provide('typeList', typeList)
+onMounted(() => getWebsites())
+const getWebsites = async ()=> {
+  allCollectedList.value = await getAllCollectionAPI()
+  typeList.value = await getAllTypeAPI();
+  console.log(allCollectedList)
+}
+function openAddWebsiteModal() {
     addWebsiteFlag.value.open();
 }
 function selectType(obj) {
   showWebsiteType.value = obj.type;
-  console.log(obj.type)
 }
+function addNewWebsite(data) {
+  addWebsiteAPI(data).then(() => {
+    getWebsites();
+  })
+}
+async function selectWebsiteByName() {
+  if (searchWebsiteText.value === '') {
+    return
+  }
+  selectedWebsiteList.value = await selectWebsiteByNameAPI(searchWebsiteText.value, false);
+  console.log(selectedWebsiteList.value)
+}
+watch(searchWebsiteText, (value) => {
+  if (value === ''){
+    selectedWebsiteList.value = []
+  }
+})
 </script>
 
 <style scoped>

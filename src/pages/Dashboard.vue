@@ -96,7 +96,7 @@
       </div>
     </div>
     <div v-for="(dayTodos, index) in todosMap" :key="`dashboard-${index}`">
-      <TodoList :todo-date="dayTodos[0]" :todos="dayTodos[1]" @refreshData="handleRefresh"/>
+      <TodoList :todo-date="dayTodos[0]" :todos="dayTodos[1]" @deleteTodo="deleteTodo" @changeTodoState="changeTodoState"/>
     </div>
   </div>
 </template>
@@ -115,8 +115,7 @@ import {
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import TodoList from "@/components/TodoList.vue";
 import {computed, nextTick, onMounted, ref, watch} from "vue";
-import {getTodosAPI, saveTodoAPI} from "@/apis/dashboard";
-import MyEditor from "@/components/MyEditor.vue";
+import {changeTodoStateAPI, deleteTodoAPI, getTodosAPI, saveTodoAPI} from "@/apis/dashboard";
 import Quill from "quill";
 import 'quill/dist/quill.core.css'; // 导入 Quill 的核心样式
 import 'quill/dist/quill.bubble.css'; // 导入 Quill 的 bubble 样式（可选）
@@ -145,9 +144,6 @@ onMounted(() => {
 const todosMap = ref([]);
 const listState = ref(true);
 const editTodo = ref("");
-function handleRefresh() {
-  setTimeout(getAllData, 0);
-}
 const getAllData = async ()=> {
   todosMap.value = await getTodosAPI();
 }
@@ -156,9 +152,20 @@ function saveTodo() {
     editTodo.value = "";
     return;
   }
-  saveTodoAPI(editTodo.value);
-  handleRefresh();
+  saveTodoAPI(editTodo.value).then(() => {
+    getAllData()
+  })
   editTodo.value = '';
+}
+function deleteTodo(todo) {
+  deleteTodoAPI(todo).then(() => {
+    getAllData();
+  })
+}
+function changeTodoState(todo) {
+  changeTodoStateAPI(todo).then(() => {
+    getAllData();
+  })
 }
 function saveEvent() {
 

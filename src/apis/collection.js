@@ -1,50 +1,90 @@
 import {service} from "@/utils/axios";
-export const getCollectionByTypeAPI = (type) => {
-    return service.get("/collection").then(res => {
-        for (const list in res.data) {
-            if (list === type){
-                console.log(res.data[type])
-                return res.data[type];
-            }else {
-                return []
-            }
+export const getCollectionByTypeAPI = async (type) => {
+    try {
+        const res = await service.get(`/collection2?type=${type}`);
+        if (res.data.length !== 0){
+            return res.data;
+        }else {
+            return [];
         }
-    })
+    }catch (e) {
+        console.log(e)
+    }
+}
+export const selectWebsiteByNameAPI = async (name, strictFlag) => {
+    try {
+        let res;
+        if (strictFlag){
+            res = await service.get(`/collection2?name=${name}`);
+        }else {
+            res = await service.get(`/collection2?name_like=${name}`);
+        }
+        if (res.data.length !== 0){
+            return res.data.reduce((acc, item) => {
+                if (item.type !== "") {
+                    if (!acc.has(item.type)) {
+                        acc.set(item.type, [])
+                    }
+                    acc.get(item.type).push(item);
+                }
+                return acc;
+            }, new Map())
+        }
+        return [];
+    }catch (e) {
+        console.log(e);
+    }
 }
 export const getAllCollectionAPI = async() => {
-    const res = await service.get("/collection");
-    return new Map(Object.entries(res.data));
+    const res = await service.get("/collection2");
+    return res.data.reduce((acc, item) => {
+        if (item.type !== "") {
+            if (!acc.has(item.type)) {
+                acc.set(item.type, [])
+            }
+            acc.get(item.type).push(item);
+        }
+        return acc;
+    }, new Map())
 }
 export const addWebsiteAPI = async (newWebsiteData) => {
     try {
         const { type, name, url, about } = newWebsiteData;
+        const websiteObj = await selectWebsiteByNameAPI(name, true);
+        if (websiteObj.length !== 0){
+            console.log('website already exist')
+        }
         const newWebsite = {
+            type,
             name,
             url,
             about,
         }
-        const res = await getCollectionByTypeAPI(type);
-        if (res.length === 0) {
-            console.log('创建新目录')
-            try {
-                // await service.post('/collection',{type: newWebsite});
-            }catch (e) {
-                console.log(e)
-            }
-        }else {
-            console.log('加到现有目录')
-            // await service.post(`/${type}`, newWebsite );
-            // return {
-            //     code: 200,
-            //     msg: 'add website success',
-            // }
+        await service.post('/collection2', newWebsite);
+        return {
+            code: 200,
+            msg: 'add website success',
         }
-
     }catch (e) {
         console.log(e)
         return {
             code: 500,
             msg: 'add error',
         }
+    }
+}
+
+export const getAllTypeAPI = async () => {
+    try {
+        const res = await service.get('/collection2');
+        let typeList = []
+        res.data.forEach(item => {
+            if (!typeList.includes(item.type)){
+                typeList.push(item.type)
+            }
+        })
+        return typeList;
+    }catch (e) {
+        console.log(e)
     }
 }

@@ -13,116 +13,134 @@
       "postId": 1
     }
   ],
-  "collection": {
-    "websites": [
-      {
-        "id": 0,
-        "name": "json-server",
-        "url": "https://github.com/akiweiqinliang/json-server",
-        "about": "Get a full fake REST API with zero coding in less than 30 seconds (seriously)"
-      },
-      {
-        "id": 1,
-        "name": "现代JavaScript教程",
-        "url": "https://zh.javascript.info/",
-        "about": "learning javascript"
-      },
-      {
-        "id": 2,
-        "name": "Vite官网",
-        "url": "https://cn.vitejs.dev/",
-        "about": "官方中文文档"
-      },
-      {
-        "id": 3,
-        "name": "酷壳",
-        "url": "https://coolshell.cn/articles/5426.html",
-        "about": "vim指令学习"
-      },
-      {
-        "id": 4,
-        "name": "网络是如何连接的——户根勤.pdf",
-        "url": "https://github.com/tongxurt/pdfs/blob/master/%E7%BD%91%E7%BB%9C%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%9E%E6%8E%A5%E7%9A%84_%E6%88%B7%E6%A0%B9%E5%8B%A4.pdf",
-        "about": "计算机网络方面学习"
-      },
-      {
-        "id": 5,
-        "name": "landingfolio",
-        "url": "https://www.landingfolio.com/",
-        "about": "可供参考网站"
-      },
-      {
-        "id": 6,
-        "name": "photopea",
-        "url": "https://www.photopea.com/",
-        "about": "在线修图网站"
-      },
-      {
-        "id": 7,
-        "name": "NuxtJS",
-        "url": "https://www.nuxtjs.cn/guides/get-started/installation",
-        "about": "方便seo的ssr框架（Vue）"
-      }
-    ],
-    "libraries": [
-      {
-        "id": 5,
-        "name": "tailwind",
-        "url": "https://tailwindui.com/",
-        "about": "很细"
-      },
-      {
-        "id": 6,
-        "name": "quasar",
-        "url": "https://v1.quasar.dev/",
-        "about": "Make sure that you have Node >=10 and NPM >=5 installed on your machine，v1适合vue2，v2适合vue3"
-      },
-      {
-        "id": 7,
-        "name": "View UI",
-        "url": "https://v4.iviewui.com/docs/introduce",
-        "about": "国产组件库，vue3用plus"
-      },
-      {
-        "id": 8,
-        "name": "anime.js",
-        "url": "https://animejs.com/",
-        "about": "动画库，蛮齐"
-      },
-      {
-        "id": 9,
-        "name": "chart.js",
-        "url": "https://www.chartjs.org/docs/latest/samples/advanced/linear-gradient.html",
-        "about": "做统计图的库"
-      },
-      {
-        "id": 10,
-        "name": "parallax",
-        "url": "https://github.com/wagerfield/parallax",
-        "about": "跟随鼠标移动实现场景3D效果库"
-      },
-      {
-        "id": 11,
-        "name": "semantic-ui",
-        "url": "https://semantic-ui.com/",
-        "about": "纯css样式库，只需添加类名即可实现效果"
-      },
-      {
-        "id": 12,
-        "name": "hyperui",
-        "url": "https://www.hyperui.dev/",
-        "about": "基于tailwind的组件库"
-      }
-    ],
-    "resources": [
-      {
-        "id": 20,
-        "name": "pexels",
-        "url": "https://www.pexels.com/zh-cn/",
-        "about": "免费图片库，精美，多竖幅"
-      }
-    ]
-  },
+  "collection2": [
+    {
+      "id": 0,
+      "name": "json-server",
+      "url": "https://github.com/akiweiqinliang/json-server",
+      "about": "Get a full fake REST API with zero coding in less than 30 seconds (seriously)",
+      "type": "websites"
+    },
+    {
+      "id": 1,
+      "name": "现代JavaScript教程",
+      "url": "https://zh.javascript.info/",
+      "about": "learning javascript",
+      "type": "websites"
+    },
+    {
+      "id": 2,
+      "name": "Vite官网",
+      "url": "https://cn.vitejs.dev/",
+      "about": "官方中文文档",
+      "type": "websites"
+    },
+    {
+      "id": 3,
+      "name": "酷壳",
+      "url": "https://coolshell.cn/articles/5426.html",
+      "about": "vim指令学习",
+      "type": "websites"
+    },
+    {
+      "id": 4,
+      "name": "网络是如何连接的——户根勤.pdf",
+      "url": "https://github.com/tongxurt/pdfs/blob/master/%E7%BD%91%E7%BB%9C%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%9E%E6%8E%A5%E7%9A%84_%E6%88%B7%E6%A0%B9%E5%8B%A4.pdf",
+      "about": "计算机网络方面学习",
+      "type": "websites"
+    },
+    {
+      "id": 5,
+      "name": "landingfolio",
+      "url": "https://www.landingfolio.com/",
+      "about": "可供参考网站",
+      "type": "websites"
+    },
+    {
+      "id": 6,
+      "name": "photopea",
+      "url": "https://www.photopea.com/",
+      "about": "在线修图网站",
+      "type": "websites"
+    },
+    {
+      "id": 7,
+      "name": "NuxtJS",
+      "url": "https://www.nuxtjs.cn/guides/get-started/installation",
+      "about": "方便seo的ssr框架（Vue）",
+      "type": "websites"
+    },
+    {
+      "id": 8,
+      "name": "tailwind",
+      "url": "https://tailwindui.com/",
+      "about": "很细",
+      "type": "libraries"
+    },
+    {
+      "id": 9,
+      "name": "quasar",
+      "url": "https://v1.quasar.dev/",
+      "about": "Make sure that you have Node >=10 and NPM >=5 installed on your machine，v1适合vue2，v2适合vue3",
+      "type": "libraries"
+    },
+    {
+      "id": 10,
+      "name": "View UI",
+      "url": "https://v4.iviewui.com/docs/introduce",
+      "about": "国产组件库，vue3用plus",
+      "type": "libraries"
+    },
+    {
+      "id": 11,
+      "name": "anime.js",
+      "url": "https://animejs.com/",
+      "about": "动画库，蛮齐",
+      "type": "libraries"
+    },
+    {
+      "id": 12,
+      "name": "chart.js",
+      "url": "https://www.chartjs.org/docs/latest/samples/advanced/linear-gradient.html",
+      "about": "做统计图的库",
+      "type": "libraries"
+    },
+    {
+      "id": 13,
+      "name": "parallax",
+      "url": "https://github.com/wagerfield/parallax",
+      "about": "跟随鼠标移动实现场景3D效果库",
+      "type": "libraries"
+    },
+    {
+      "id": 14,
+      "name": "semantic-ui",
+      "url": "https://semantic-ui.com/",
+      "about": "纯css样式库，只需添加类名即可实现效果",
+      "type": "libraries"
+    },
+    {
+      "id": 15,
+      "name": "hyperui",
+      "url": "https://www.hyperui.dev/",
+      "about": "基于tailwind的组件库",
+      "type": "libraries"
+    },
+    {
+      "id": 16,
+      "name": "pexels",
+      "url": "https://www.pexels.com/zh-cn/",
+      "about": "免费图片库，精美，多竖幅",
+      "type": "resources"
+    },
+    {
+      "type": "libraries",
+      "name": "quill",
+      "url": "https://quilljs.com/",
+      "about": "富文本编辑器",
+      "id": 17
+    }
+  ],
   "books": [
     {
       "id": 10,
@@ -430,8 +448,8 @@
     {
       "date": "Thu Oct 12 2023",
       "text": "collection添加新增功能",
-      "done": false,
       "deleteState": false,
+      "done": true,
       "id": 51
     },
     {
@@ -454,6 +472,34 @@
       "done": false,
       "deleteState": true,
       "id": 54
+    },
+    {
+      "date": "Mon Oct 16 2023",
+      "text": "aaaaaa",
+      "done": true,
+      "deleteState": true,
+      "id": 55
+    },
+    {
+      "date": "Mon Oct 16 2023",
+      "text": "sss",
+      "done": true,
+      "deleteState": true,
+      "id": 56
+    },
+    {
+      "date": "Mon Oct 16 2023",
+      "text": "aaaa",
+      "done": false,
+      "deleteState": true,
+      "id": 57
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "collection页新增搜索功能",
+      "deleteState": false,
+      "done": true,
+      "id": 58
     }
   ],
   "profile": {
@@ -481,5 +527,132 @@
       "phoneNumber": "13724116512",
       "id": 3
     }
-  ]
+  ],
+  "collection": {
+    "websites": [
+      {
+        "id": 0,
+        "name": "json-server",
+        "url": "https://github.com/akiweiqinliang/json-server",
+        "about": "Get a full fake REST API with zero coding in less than 30 seconds (seriously)",
+        "type": "websites"
+      },
+      {
+        "id": 1,
+        "name": "现代JavaScript教程",
+        "url": "https://zh.javascript.info/",
+        "about": "learning javascript",
+        "type": "websites"
+      },
+      {
+        "id": 2,
+        "name": "Vite官网",
+        "url": "https://cn.vitejs.dev/",
+        "about": "官方中文文档",
+        "type": "websites"
+      },
+      {
+        "id": 3,
+        "name": "酷壳",
+        "url": "https://coolshell.cn/articles/5426.html",
+        "about": "vim指令学习",
+        "type": "websites"
+      },
+      {
+        "id": 4,
+        "name": "网络是如何连接的——户根勤.pdf",
+        "url": "https://github.com/tongxurt/pdfs/blob/master/%E7%BD%91%E7%BB%9C%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%9E%E6%8E%A5%E7%9A%84_%E6%88%B7%E6%A0%B9%E5%8B%A4.pdf",
+        "about": "计算机网络方面学习",
+        "type": "websites"
+      },
+      {
+        "id": 5,
+        "name": "landingfolio",
+        "url": "https://www.landingfolio.com/",
+        "about": "可供参考网站",
+        "type": "websites"
+      },
+      {
+        "id": 6,
+        "name": "photopea",
+        "url": "https://www.photopea.com/",
+        "about": "在线修图网站",
+        "type": "websites"
+      },
+      {
+        "id": 7,
+        "name": "NuxtJS",
+        "url": "https://www.nuxtjs.cn/guides/get-started/installation",
+        "about": "方便seo的ssr框架（Vue）",
+        "type": "websites"
+      }
+    ],
+    "libraries": [
+      {
+        "id": 5,
+        "name": "tailwind",
+        "url": "https://tailwindui.com/",
+        "about": "很细",
+        "type": "libraries"
+      },
+      {
+        "id": 6,
+        "name": "quasar",
+        "url": "https://v1.quasar.dev/",
+        "about": "Make sure that you have Node >=10 and NPM >=5 installed on your machine，v1适合vue2，v2适合vue3",
+        "type": "libraries"
+      },
+      {
+        "id": 7,
+        "name": "View UI",
+        "url": "https://v4.iviewui.com/docs/introduce",
+        "about": "国产组件库，vue3用plus",
+        "type": "libraries"
+      },
+      {
+        "id": 8,
+        "name": "anime.js",
+        "url": "https://animejs.com/",
+        "about": "动画库，蛮齐",
+        "type": "libraries"
+      },
+      {
+        "id": 9,
+        "name": "chart.js",
+        "url": "https://www.chartjs.org/docs/latest/samples/advanced/linear-gradient.html",
+        "about": "做统计图的库",
+        "type": "libraries"
+      },
+      {
+        "id": 10,
+        "name": "parallax",
+        "url": "https://github.com/wagerfield/parallax",
+        "about": "跟随鼠标移动实现场景3D效果库",
+        "type": "libraries"
+      },
+      {
+        "id": 11,
+        "name": "semantic-ui",
+        "url": "https://semantic-ui.com/",
+        "about": "纯css样式库，只需添加类名即可实现效果",
+        "type": "libraries"
+      },
+      {
+        "id": 12,
+        "name": "hyperui",
+        "url": "https://www.hyperui.dev/",
+        "about": "基于tailwind的组件库",
+        "type": "libraries"
+      }
+    ],
+    "resources": [
+      {
+        "id": 20,
+        "name": "pexels",
+        "url": "https://www.pexels.com/zh-cn/",
+        "about": "免费图片库，精美，多竖幅",
+        "type": "resources"
+      }
+    ]
+  }
 }
