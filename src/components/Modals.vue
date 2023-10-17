@@ -25,7 +25,7 @@
                               class="relative block overflow-hidden border-b border-gray-200 bg-transparent pt-3 focus-within:border-lime-600"
                           >
                             <input
-                                v-model="websiteData.url"
+                                v-model.trim="websiteData.url"
                                 type="text"
                                 id="webUrl"
                                 placeholder="Name"
@@ -45,7 +45,7 @@
                               class="relative block overflow-hidden border-b border-gray-200 bg-transparent pt-3 focus-within:border-lime-600"
                           >
                             <input
-                                v-model="websiteData.name"
+                                v-model.trim="websiteData.name"
                                 type="text"
                                 id="webName"
                                 placeholder="Name"
@@ -65,7 +65,7 @@
                               class="relative block overflow-hidden border-b border-gray-200 bg-transparent pt-3 focus-within:border-lime-600"
                           >
                             <input
-                                v-model="websiteData.type"
+                                v-model.trim="websiteData.type"
                                 type="text"
                                 id="webType"
                                 placeholder="Type"
@@ -80,7 +80,7 @@
                           </label>
                         </div>
                         <div class="col-span-6 sm:col-span-2 flex justify-end items-end">
-                          <Dropdown @selectWebsite="chooseType" />
+                          <Dropdown @selectWebsite="chooseType" :is-modal="true"/>
                         </div>
                         <div class="col-span-6">
                           <label
@@ -89,7 +89,7 @@
                           >
                             <span class=" absolute top-2 -translate-y-1/2  text-sm text-gray-700 peer-focus:text-xs">describe</span>
                             <textarea
-                                v-model="websiteData.about"
+                                v-model.trim="websiteData.about"
                                 type="text"
                                 id="webAbout"
                                 placeholder="Type"
@@ -124,6 +124,7 @@ import {addWebsiteAPI} from "@/apis/collection";
 
 const state = ref(false)
 const emits = defineEmits(['addNewWebsite'])
+
 let websiteData = ref({
   url: '',
   name: '',
@@ -141,8 +142,19 @@ const close = ()=> {
 }
 
 function addWebsite() {
+  for (const key in websiteData.value) {
+    if (websiteData.value[key] === ''){
+      return
+    }
+  }
   close();
   emits('addNewWebsite', websiteData.value);
+  websiteData.value = {
+    url: '',
+    name: '',
+    type: '',
+    about: '',
+  }
 }
 defineExpose({
   open,

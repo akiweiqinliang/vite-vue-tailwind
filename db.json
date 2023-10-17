@@ -493,6 +493,13 @@
       "done": false,
       "deleteState": true,
       "id": 57
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "collection页新增搜索功能",
+      "deleteState": false,
+      "done": true,
+      "id": 58
     }
   ],
   "profile": {

@@ -16,12 +16,19 @@ export const selectWebsiteByNameAPI = async (name, strictFlag) => {
         let res;
         if (strictFlag){
             res = await service.get(`/collection2?name=${name}`);
-
         }else {
             res = await service.get(`/collection2?name_like=${name}`);
         }
         if (res.data.length !== 0){
-            return res.data;
+            return res.data.reduce((acc, item) => {
+                if (item.type !== "") {
+                    if (!acc.has(item.type)) {
+                        acc.set(item.type, [])
+                    }
+                    acc.get(item.type).push(item);
+                }
+                return acc;
+            }, new Map())
         }
         return [];
     }catch (e) {
