@@ -13,10 +13,6 @@
             <MapPinIcon class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
             Remote
           </div>
-<!--          <div class="mt-2 flex items-center text-sm text-gray-500">-->
-<!--            <CurrencyDollarIcon class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />-->
-<!--            $120k &ndash; $140k-->
-<!--          </div>-->
           <div class="mt-2 flex items-center text-sm text-gray-500">
             <CalendarIcon class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
             Today {{ new Date().toDateString() }}
@@ -95,8 +91,11 @@
         </div>
       </div>
     </div>
-    <div v-for="(dayTodos, index) in todosMap" :key="`dashboard-${index}`">
-      <TodoList :todo-date="dayTodos[0]" :todos="dayTodos[1]" @deleteTodo="deleteTodo" @changeTodoState="changeTodoState"/>
+    <div v-for="(dayTodos, index) in todosMap" :key="`dashboard-todo-${index}`" v-show="listState">
+      <TodoList :todo-date="dayTodos[0]" :todos="dayTodos[1]" :todo-flag="true" @deleteTodo="deleteTodo" @changeTodoState="changeTodoState"/>
+    </div>
+    <div v-for="(dayEvent, index) in eventsMap" :key="`dashboard-event-${index}`" v-show="!listState">
+      <TodoList :todo-date="dayEvent[0]" :todos="dayEvent[1]" :todo-flag="false" @deleteEvent="deleteEvent" @changeEventState="changeEventState"/>
     </div>
   </div>
 </template>
@@ -115,19 +114,26 @@ import {
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import TodoList from "@/components/TodoList.vue";
 import {computed, nextTick, onMounted, ref, watch} from "vue";
-import {changeTodoStateAPI, deleteTodoAPI, getTodosAPI, saveTodoAPI} from "@/apis/dashboard";
+import {
+  changeEventStateAPI,
+  changeTodoStateAPI, deleteEventAPI,
+  deleteTodoAPI,
+  getEventsAPI,
+  getTodosAPI,
+  saveEventAPI,
+  saveTodoAPI
+} from "@/apis/dashboard";
 import Quill from "quill";
 import 'quill/dist/quill.core.css'; // 导入 Quill 的核心样式
-import 'quill/dist/quill.bubble.css'; // 导入 Quill 的 bubble 样式（可选）
 import 'quill/dist/quill.snow.css';
+// import 'quill/dist/quill.bubble.css'; // 导入 Quill 的 bubble 样式（可选）
 import '@/assets/css/customEditor.css';
 
 const editorContainer = ref(null)
 let quillInstance;
-
 onMounted(() => {
   const toolbarOptions = [
-    ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block', { 'align': [] }, { 'header': 1 }, { 'header': 2 }, { 'list': 'ordered'}, { 'list': 'bullet' }, { 'color': [] }, { 'background': [] }],        // toggled buttons
+    ['bold', 'italic', 'underline', 'blockquote', 'code-block', 'image', { 'align': [] }, { 'header': 1 }, { 'header': 2 }, { 'list': 'ordered'}, { 'list': 'bullet' }, { 'color': [] }, { 'background': [] }],        // toggled buttons
     [{ 'header': [1, 2, 3, 4, 5, 6, false] }, { 'font': [] },'clean'],
   ];
   quillInstance = new Quill(editorContainer.value, {
@@ -141,11 +147,14 @@ onMounted(() => {
 })
 
 
-const todosMap = ref([]);
-const listState = ref(true);
-const editTodo = ref("");
+const todosMap = ref([])
+const eventsMap = ref([])
+const listState = ref(true)
+const editTodo = ref("")
+const editEvent = ref("")
 const getAllData = async ()=> {
   todosMap.value = await getTodosAPI();
+  eventsMap.value = await getEventsAPI();
 }
 function saveTodo() {
   if (editTodo.value.trim() === ""){
@@ -168,7 +177,27 @@ function changeTodoState(todo) {
   })
 }
 function saveEvent() {
-
+  editEvent.value = quillInstance.root.innerHTML;
+  if (quillInstance.getText().trim() === ''){
+    quillInstance.root.innerHTML = "";
+    editEvent.value = "";
+    return;
+  }
+  saveEventAPI(editEvent.value).then(() => {
+    getAllData();
+  })
+  quillInstance.root.innerHTML = "";
+  editEvent.value = "";
+}
+function deleteEvent(event) {
+  deleteEventAPI(event).then(() => {
+    getAllData();
+  })
+}
+function changeEventState(event) {
+  changeEventStateAPI(event).then(() => {
+    getAllData();
+  })
 }
 </script>
 
