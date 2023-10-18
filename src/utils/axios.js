@@ -4,7 +4,7 @@ import axios from 'axios'
 export const service = axios.create({
     // baseURL: process.env.VUE_APP_BASE_API, //变量地址
     // baseURL:'http://localhost:3000/', //重点，此处与代理保持一致！！！！
-    baseURL:'https://akiweiqinliang.onrender.com/', //重点，此处与代理保持一致！！！！
+    baseURL:'https://g7w1vj5x-3000.asse.devtunnels.ms', //重点，此处与代理保持一致！！！！
     timeout: 5000,
     withCredentials: true, // 异步请求携带cookie
     // headers: {
