@@ -139,6 +139,13 @@
       "url": "https://quilljs.com/",
       "about": "富文本编辑器",
       "id": 17
+    },
+    {
+      "type": "articles",
+      "name": "富文本编辑器vue-quill-editor使用心得",
+      "url": "https://juejin.cn/post/6844904002576973832",
+      "about": "踩坑汇总和推荐图片调节插件",
+      "id": 18
     }
   ],
   "books": [
@@ -456,7 +463,7 @@
       "date": "Thu Oct 12 2023",
       "text": "dashboard页新增书写event列表，要求使用富文本",
       "deleteState": false,
-      "done": false,
+      "done": true,
       "id": 52
     },
     {
@@ -500,6 +507,120 @@
       "deleteState": false,
       "done": true,
       "id": 58
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "111111111111",
+      "done": false,
+      "deleteState": true,
+      "id": 59
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "qqqqqqqqq",
+      "done": false,
+      "deleteState": true,
+      "id": 60
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "111111111",
+      "done": false,
+      "deleteState": true,
+      "id": 61
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "11111111111",
+      "done": false,
+      "deleteState": true,
+      "id": 62
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "111111111111",
+      "done": false,
+      "deleteState": true,
+      "id": 63
+    }
+  ],
+  "events": [
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "<p>aaaaaaa</p>",
+      "done": false,
+      "deleteState": true,
+      "id": 1
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "<h3><span class=\"ql-font-serif\" style=\"color: rgb(250, 204, 204);\">happy</span></h3>",
+      "done": false,
+      "deleteState": true,
+      "id": 2
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "<p>what about to do something nobody can do but me</p><ol><li>play</li><li>laugh</li><li>111</li></ol>",
+      "done": false,
+      "deleteState": true,
+      "id": 3
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "<p>aaaaaaaaa</p>",
+      "done": false,
+      "deleteState": true,
+      "id": 4
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "<p>aaaaaaaaa</p>",
+      "done": false,
+      "deleteState": true,
+      "id": 5
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "<p>aaaaaaaaaaaa</p>",
+      "done": false,
+      "deleteState": true,
+      "id": 6
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "<p>aaaaaaaaaaaaaaaaaaaaa</p>",
+      "done": false,
+      "deleteState": true,
+      "id": 7
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "<p>aaaaaaaaaaaaaaaaaaaaa</p>",
+      "done": false,
+      "deleteState": true,
+      "id": 8
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "<p><span style=\"background-color: rgb(255, 194, 102);\">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span></p>",
+      "done": false,
+      "deleteState": true,
+      "id": 9
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "<h1 class=\"ql-align-center\">野餐计划</h1><ol><li>生生世世生生世世生生世世生生世世</li><li>dddddddddd</li><li>dddddddddddddd</li><li>ddddddddddd</li></ol>",
+      "done": false,
+      "deleteState": true,
+      "id": 10
+    },
+    {
+      "date": "Tue Oct 17 2023",
+      "text": "<p>周二晚餐</p><ul><li>煎蛋肠</li><li>白灼菜心</li><li>孜然烤鸡胸肉片</li></ul><p>周三午餐</p><ul><li>豆角炒牛肉</li><li>黄瓜木耳鸡蛋脆皮肠</li><li>蒸馒头*2</li></ul>",
+      "done": false,
+      "deleteState": false,
+      "id": 11
     }
   ],
   "profile": {
