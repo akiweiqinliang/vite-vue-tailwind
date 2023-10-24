@@ -3,6 +3,9 @@
 - **template of:** vite + vue
 - **tailwindcss:** v3.x
 
+## Backend
+https://github.com/akiweiqinliang/vite-tailwind-json
+
 ## Started
 ```bash
 yarn
