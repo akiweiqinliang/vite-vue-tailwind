@@ -34,6 +34,8 @@ export const loginAPI = async (loginData) => {
     const { userName, password } = loginData;
     try {
         const res = await service.get(`/users?userName=${userName}&password=${password}`);
+        // console.log(res, '444')
+        // return res;
         if (res.data.length === 1){
             return {
                 code: 200,
