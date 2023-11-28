@@ -146,6 +146,27 @@
       "url": "https://juejin.cn/post/6844904002576973832",
       "about": "踩坑汇总和推荐图片调节插件",
       "id": 18
+    },
+    {
+      "type": "deploy",
+      "name": "railway",
+      "url": "https://railway.app/",
+      "about": "部署网站",
+      "id": 19
+    },
+    {
+      "type": "deploy",
+      "name": "netlify",
+      "url": "https://www.netlify.com/",
+      "about": "部署网站",
+      "id": 20
+    },
+    {
+      "type": "deploy",
+      "name": "planetscale",
+      "url": "https://planetscale.com/",
+      "about": "免费数据库",
+      "id": 21
     }
   ],
   "books": [
@@ -542,6 +563,20 @@
       "done": false,
       "deleteState": true,
       "id": 63
+    },
+    {
+      "date": "Wed Oct 18 2023",
+      "text": "1",
+      "deleteState": false,
+      "done": true,
+      "id": 64
+    },
+    {
+      "date": "Wed Oct 18 2023",
+      "text": "1",
+      "done": false,
+      "deleteState": true,
+      "id": 65
     }
   ],
   "events": [

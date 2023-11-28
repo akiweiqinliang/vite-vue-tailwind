@@ -65,6 +65,7 @@
                     type="text"
                     id="UserName"
                     placeholder="Name"
+                    autocomplete="off"
                     class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
                 />
 
@@ -86,6 +87,7 @@
                     type="text"
                     id="UserNumber"
                     placeholder="Phone Number"
+                    autocomplete="off"
                     class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
                 />
 
@@ -107,6 +109,7 @@
                     type="email"
                     id="UserEmail"
                     placeholder="Email"
+                    autocomplete="off"
                     class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
                 />
 
@@ -128,6 +131,7 @@
                     type="password"
                     id="UserPassword"
                     placeholder="Password"
+                    autocomplete="off"
                     class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
                 />
 
@@ -149,6 +153,7 @@
                     type="password"
                     id="UserPasswordConfirmation"
                     placeholder="Password Confirmation"
+                    autocomplete="off"
                     class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
                 />
 
