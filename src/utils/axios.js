@@ -3,9 +3,9 @@ import axios from 'axios'
 // export 将 service 传出去
 export const service = axios.create({
     // baseURL: process.env.VUE_APP_BASE_API, //变量地址
-    // baseURL:'http://localhost:3004/', //重点，此处与代理保持一致！！！！
-    baseURL: 'https://aki-server.onrender.com',
-    // baseURL:'https://g7w1vj5x-3000.asse.devtunnels.ms', //重点，此处与代理保持一致！！！！
+    // baseURL:'http://localhost:3004/', // 本地测试地址
+    baseURL: 'https://aki-server.onrender.com', // 线上部署地址
+    // baseURL:'https://g7w1vj5x-3000.asse.devtunnels.ms', // vscode forward port
     timeout: 5000,
     withCredentials: true, // 异步请求携带cookie
     // headers: {
