@@ -4,8 +4,11 @@
 - **tailwindcss:** v3.x
 
 ## Backend
-https://github.com/akiweiqinliang/vite-tailwind-json
+镜像文件地址：docker pull akiweiqinliang/myrepository:v1.0
+服务部署地址：https://aki-server.onrender.com
 
+json-server文件
+https://github.com/akiweiqinliang/vite-tailwind-json
 ## Started
 ```bash
 yarn
